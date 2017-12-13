@@ -10,6 +10,7 @@
 
     <modules>
         <module>hope-task-center</module>
+        <module>hope-learn-patterns</module>
     </modules>
 
     <properties>
@@ -17,7 +18,6 @@
     </properties>
 
     <dependencies>
-
 
     </dependencies>
 
