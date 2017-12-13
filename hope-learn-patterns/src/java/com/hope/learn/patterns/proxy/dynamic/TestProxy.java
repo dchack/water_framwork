@@ -11,6 +11,7 @@ import java.lang.reflect.Proxy;
 public class TestProxy {
 
     public static void main(String[] args) {
+
         Subject subject = new RealSubject();
         ProxyHandler proxyHandler = new ProxyHandler(subject);
         Subject subjectProxy = (Subject)Proxy.newProxyInstance(subject.getClass().getClassLoader(),
