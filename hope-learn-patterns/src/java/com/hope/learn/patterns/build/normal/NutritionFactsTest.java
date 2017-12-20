@@ -1,7 +1,7 @@
 package com.hope.learn.patterns.build.normal;
 
 /**
- * Created by dongchao on 2017/12/15.
+ * Created by hope on 2017/12/15.
  */
 public class NutritionFactsTest {
     public static void main(String[] args) {
