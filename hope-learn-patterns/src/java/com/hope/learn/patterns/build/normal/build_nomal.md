@@ -1,0 +1,5 @@
+builder模式经常会被用到：
+比如Quartz 的
+ScheduleBuilder
+TriggerBuilder
+JobBuilder
