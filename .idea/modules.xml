@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/hope-learn/hope-learn.iml" filepath="$PROJECT_DIR$/hope-learn/hope-learn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hope-task-center/hope-task-center.iml" filepath="$PROJECT_DIR$/hope-task-center/hope-task-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hope-learn/hope-task-center (1).iml" filepath="$PROJECT_DIR$/hope-learn/hope-task-center (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/water-framwork.iml" filepath="$PROJECT_DIR$/water-framwork.iml" />
+    </modules>
+  </component>
+</project>
