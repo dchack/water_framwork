@@ -1,4 +1,4 @@
-package com.hope.learn.internal.semaphore;
+package com.hope.learn.base.semaphore;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

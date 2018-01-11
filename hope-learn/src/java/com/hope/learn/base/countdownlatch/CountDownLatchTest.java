@@ -1,4 +1,4 @@
-package com.hope.learn.internal.countdownlatch;
+package com.hope.learn.base.countdownlatch;
 
 import java.util.concurrent.CountDownLatch;
 
