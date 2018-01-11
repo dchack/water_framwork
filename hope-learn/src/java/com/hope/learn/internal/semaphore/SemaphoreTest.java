@@ -20,8 +20,9 @@ public class SemaphoreTest {
             Runnable runnable = new Runnable(){
                 public void run(){
                     try {
-                        sp.acquire();//请求获得许可，如果有可获得的许可则继续往下执行，许可数减1。否则进入阻塞状态
-                    } catch (InterruptedException e1) {
+//                        sp.acquire();//请求获得许可，如果有可获得的许可则继续往下执行，许可数减1。否则进入阻塞状态
+                        sp.tryAcquire();
+                    } catch (Exception e1) {
                         e1.printStackTrace();
                     }
                     System.out.println("线程" + Thread.currentThread().getName() +
