@@ -1,7 +1,7 @@
 
 *.class
 
-*.xml
+*.gitignore
 
 *.iml
 
