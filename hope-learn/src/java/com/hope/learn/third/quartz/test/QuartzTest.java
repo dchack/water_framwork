@@ -1,5 +1,6 @@
 package com.hope.learn.third.quartz.test;
 
+import com.hope.learn.third.quartz.base.listener.JobListenerTest;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
@@ -22,10 +23,6 @@ public class QuartzTest {
                     .withIdentity("job1", "group1")
                     .build();
 
-            JobDetail job2 = JobBuilder.newJob(MyJobT.class)
-                    .withIdentity("job2", "group2")
-                    .build();
-
             // Trigger the job to run now, and then repeat every 40 seconds
             Trigger trigger = TriggerBuilder.newTrigger()
                     .withIdentity("trigger1", "group1")
@@ -35,17 +32,12 @@ public class QuartzTest {
                             .repeatForever())
                     .build();
 
-            Trigger trigger2 = TriggerBuilder.newTrigger()
-                    .withIdentity("trigger2", "group2")
-                    .startNow()
-                    .withSchedule(SimpleScheduleBuilder.simpleSchedule()
-                            .withIntervalInSeconds(2)
-                            .repeatForever())
-                    .build();
-
 
             // Tell quartz to schedule the job using our trigger
             scheduler.scheduleJob(job, trigger);
+            //第四步：关联监听器
+            JobListenerTest listener = new JobListenerTest();
+            scheduler.getListenerManager().addJobListener(listener);
 
             // wait trigger
             Thread.sleep(10000);
