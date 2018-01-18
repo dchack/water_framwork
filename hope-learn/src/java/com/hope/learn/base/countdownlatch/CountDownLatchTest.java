@@ -3,7 +3,7 @@ package com.hope.learn.base.countdownlatch;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * Created by dongchao on 2018/1/11.
+ * Created by hope on 2018/1/11.
  */
 public class CountDownLatchTest {
     public static void main(String[] args) throws InterruptedException {
