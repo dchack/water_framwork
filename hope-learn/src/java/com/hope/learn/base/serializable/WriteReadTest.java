@@ -8,13 +8,18 @@ import java.io.*;
 public class WriteReadTest {
 
     public static void main(String[] args){
-
         Person person = new Person();
         person.setAge(25);
         person.setName("YXY");
-        Person.TYPE="no"; //modify the static value
+        person.setType("not"); //modify the static value
+        Person sPerson = writerThenRead(person);
+        System.out.println(sPerson.getAge());//25
+        System.out.println(sPerson.getType());//not
+    }
 
-        File file = new File("/test.txt");
+    public static Person writerThenRead(Person person) {
+        //serialize
+        File file = new File("/Users/dongchao/dc_file/test.txt");
         try {
             OutputStream out = new FileOutputStream(file);
             ObjectOutputStream objout = new ObjectOutputStream(out);
@@ -23,20 +28,20 @@ public class WriteReadTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        person.setType("yes"); //modify the static value
         //deserializ
         Person perobj = null;
         try {
             InputStream in = new FileInputStream(file);
             ObjectInputStream objin = new ObjectInputStream(in);
             perobj = (Person)objin.readObject();
-            System.out.println(perobj.TYPE);
             in.close();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        return perobj;
     }
 
 }
