@@ -20,7 +20,10 @@ public class QuartzTest {
 
             // define the job and tie it to our HelloJob class
             JobDetail job = JobBuilder.newJob(DisallowConcurrentExecutionTestJob.class)
-                    .withIdentity("job1", "group1")
+                    .withIdentity("job1")
+                    .build();
+            JobDetail jobA = JobBuilder.newJob(DisallowConcurrentExecutionTestJob.class)
+                    .withIdentity("joba")
                     .build();
 
             // Trigger the job to run now, and then repeat every 40 seconds
@@ -31,15 +34,8 @@ public class QuartzTest {
                             .withIntervalInSeconds(1)
                             .repeatForever())
                     .build();
-
-            // define the job and tie it to our HelloJob class
-            JobDetail job2 = JobBuilder.newJob(AllowConcurrentExecutionTestJob.class)
-                    .withIdentity("job2", "group1")
-                    .build();
-
-            // Trigger the job to run now, and then repeat every 40 seconds
             Trigger trigger2 = TriggerBuilder.newTrigger()
-                    .withIdentity("trigger2", "group1")
+                    .withIdentity("trigger2")
                     .startNow()
                     .withSchedule(SimpleScheduleBuilder.simpleSchedule()
                             .withIntervalInSeconds(1)
@@ -47,7 +43,8 @@ public class QuartzTest {
                     .build();
 
             // Tell quartz to schedule the job using our trigger
-            scheduler.scheduleJob(job2, trigger2);
+            scheduler.scheduleJob(jobA, trigger);
+            scheduler.scheduleJob(job, trigger2);
 //            scheduler.scheduleJob(job2, trigger2);
             // wait trigger
             Thread.sleep(20000);
